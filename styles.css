@@ -67,7 +67,7 @@ input, button {
   font-weight: 700;
   background-image: linear-gradient(to right, var(--pink), var(--purple));
   -webkit-background-clip: text;
-  -webkit-animation-fill-color: transparent;
+  -webkit-text-fill-color: transparent;
   cursor: pointer;
   transition: 0.4s;
 }
@@ -139,4 +139,15 @@ main {
 
 .task .actions button:active {
   opacity: 0.6;
+}
+
+.task .actions .edit {
+  color: var(--pink);
+  background-image: linear-gradient(to right, var(--pink), var(--purple));
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+.task .actions .delete {
+  color: crimson;
 }
