@@ -39,15 +39,35 @@ window.addEventListener('load', () => {
      * the content div.
      */
     const taskInputElement = document.createElement('input');
-    taskInputElement.classList.add('text');
+    taskInputElement.classList.add('to-do-text');
     taskInputElement.type = 'text';
     taskInputElement.value = task;
     taskInputElement.setAttribute('readonly', 'readonly');
     taskContentElement.appendChild(taskInputElement);
 
+    //create the div for the edit and delete buttons
+    const taskActionsElement = document.createElement('div');
+    taskActionsElement.classList.add('actions');
+
+    //add a new edit button for the task
+    const editElement = document.createElement('button');
+    editElement.classList.add('edit');
+    editElement.innerHTML = 'Edit';
+
+    //add a new delete button for the task
+    const deleteElement = document.createElement('button');
+    deleteElement.classList.add('delete');
+    deleteElement.innerHTML = 'Delete';
+
+    //insert the task buttons in their proper order in the DOM
+    taskActionsElement.appendChild(editElement);
+    taskActionsElement.appendChild(deleteElement);
+    taskElement.appendChild(taskActionsElement);
 
     //add the entire task item to the complete list of tasks
     listElement.appendChild(taskElement);
+
+    input.value = '';
   });
 
 });
