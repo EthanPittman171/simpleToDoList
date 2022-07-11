@@ -91,11 +91,37 @@ main {
   padding: 1rem;
 }
 
+.section-header {
+  display: flex;
+  justify-content: space-between;
+}
+
 .task-list h2 {
   font-size: 1.5rem;
   font-weight: 300;
   color: var(--gray);
   margin-bottom: 1rem;
+}
+
+.display button {
+  cursor: pointer;
+  transition: 0.4s;
+  background-color: var(--darker);
+  padding: 0.4rem 0.5rem;
+  border-radius: 1rem;
+  margin-right: 1rem;
+  color: var(--gray);
+  font-size: 1.25rem;
+  font-weight: 300;
+  margin-bottom: 1rem;
+}
+
+.display button:hover {
+  opacity: 0.8;
+}
+
+.display button:active {
+  opacity: 0.6;
 }
 
 #tasks .task {
