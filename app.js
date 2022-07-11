@@ -68,6 +68,13 @@ window.addEventListener('load', () => {
     listElement.appendChild(taskElement);
 
     input.value = '';
+
+    //give the edit button functionality
+    editElement.addEventListener('click', () => {
+      taskInputElement.removeAttribute('readonly');
+      taskInputElement.focus();
+      editElement.innerText = "Save";
+    });
   });
 
 });
