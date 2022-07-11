@@ -2,11 +2,13 @@ window.addEventListener('load', () => {
   const form = document.querySelector('#new-task-form');
   const input = document.querySelector('#new-task-input');
   const listElement = document.querySelector('#tasks');
+  const displayBtn = document.querySelector('#displayTasks');
 
-  //when a user attempts to submit a new task
+  //when a user attempts to submit
   form.addEventListener('submit', (e) => {
     //prevent refresh of page
     e.preventDefault();
+    ;
 
     /**
      * If a user tries to submit a blank box, send an alert telling them to correct the issue.
@@ -80,5 +82,29 @@ window.addEventListener('load', () => {
         editElement.innerText = "Edit";
       }
     });
+    
+    //give the delete button functionality
+    deleteElement.addEventListener('click', () => {
+      listElement.removeChild(taskElement);
+    });
+  });
+
+  //give the hide/show tasks button functionality
+  displayBtn.addEventListener('click', () => {
+    if (displayBtn.innerText.toLowerCase() === 'hide tasks') {
+      listElement.style.visibility = 'hidden';
+      displayBtn.style.color = '#ec4899';
+      displayBtn.style.backgroundImage = 'linear-gradient(to right, var(--pink), var(--purple))';
+      displayBtn.style.webkitBackgroundClip = 'text';
+      displayBtn.style.webkitTextFillColor = 'transparent';
+      displayBtn.innerText = "Show Tasks";
+    } else {
+      listElement.style.visibility = 'visible';
+      displayBtn.style.color = '#6b7280';
+      displayBtn.style.backgroundImage = '';
+      displayBtn.style.webkitBackgroundClip = '';
+      displayBtn.style.webkitTextFillColor = '';
+      displayBtn.innerText = "Hide Tasks";
+    }
   });
 });

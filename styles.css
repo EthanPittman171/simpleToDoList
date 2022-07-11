@@ -103,16 +103,20 @@ main {
   margin-bottom: 1rem;
 }
 
+.display {
+  background-color: var(--darker);
+  padding: 0.3rem 0.5rem;
+  border-radius: 1rem;
+  margin-bottom: 1rem;
+}
+
 .display #displayTasks {
   cursor: pointer;
   transition: 0.4s;
   background-color: var(--darker);
-  padding: 0.4rem 0.5rem;
-  border-radius: 1rem;
   color: var(--gray);
   font-size: 1.25rem;
   font-weight: 300;
-  margin-bottom: 1rem;
 }
 
 .display button:hover {
