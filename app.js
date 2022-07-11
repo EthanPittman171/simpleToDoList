@@ -52,12 +52,12 @@ window.addEventListener('load', () => {
     //add a new edit button for the task
     const editElement = document.createElement('button');
     editElement.classList.add('edit');
-    editElement.innerHTML = 'Edit';
+    editElement.innerText = 'Edit';
 
     //add a new delete button for the task
     const deleteElement = document.createElement('button');
     deleteElement.classList.add('delete');
-    deleteElement.innerHTML = 'Delete';
+    deleteElement.innerText = 'Delete';
 
     //insert the task buttons in their proper order in the DOM
     taskActionsElement.appendChild(editElement);
@@ -71,9 +71,14 @@ window.addEventListener('load', () => {
 
     //give the edit button functionality
     editElement.addEventListener('click', () => {
-      taskInputElement.removeAttribute('readonly');
-      taskInputElement.focus();
-      editElement.innerText = "Save";
+      if (editElement.innerText.toLowerCase() === 'edit') {
+        taskInputElement.removeAttribute('readonly');
+        taskInputElement.focus();
+        editElement.innerText = "Save";
+      } else {
+        taskInputElement.setAttribute('readonly', 'readonly');
+        editElement.innerText = "Edit";
+      }
     });
   });
 
