@@ -27,10 +27,7 @@ window.addEventListener('load', () => {
 
     //setup the actual content portion of the individual task item
     const taskContentElement = document.createElement('div');
-    taskElement.classList.add('content');
-
-    //add the content/text portion of the individual task as a child to the task item in general
-    taskElement.appendChild(taskContentElement);
+    taskContentElement.classList.add('content');
 
     /**
      * With the typed content from the user, add it as a literal input field
@@ -44,6 +41,9 @@ window.addEventListener('load', () => {
     taskInputElement.value = task;
     taskInputElement.setAttribute('readonly', 'readonly');
     taskContentElement.appendChild(taskInputElement);
+
+    //add the content/text portion of the individual task as a child to the task item in general
+    taskElement.appendChild(taskContentElement);
 
     //create the div for the edit and delete buttons
     const taskActionsElement = document.createElement('div');
@@ -73,7 +73,7 @@ window.addEventListener('load', () => {
     editElement.addEventListener('click', () => {
       if (editElement.innerText.toLowerCase() === 'edit') {
         taskInputElement.removeAttribute('readonly');
-        taskInputElement.focus();
+        taskInputElement.focus(); //bring cursor to text
         editElement.innerText = "Save";
       } else {
         taskInputElement.setAttribute('readonly', 'readonly');
@@ -81,5 +81,4 @@ window.addEventListener('load', () => {
       }
     });
   });
-
 });
