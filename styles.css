@@ -103,13 +103,12 @@ main {
   margin-bottom: 1rem;
 }
 
-.display button {
+.display #displayTasks {
   cursor: pointer;
   transition: 0.4s;
   background-color: var(--darker);
   padding: 0.4rem 0.5rem;
   border-radius: 1rem;
-  margin-right: 1rem;
   color: var(--gray);
   font-size: 1.25rem;
   font-weight: 300;
