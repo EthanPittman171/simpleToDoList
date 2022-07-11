@@ -91,7 +91,20 @@ window.addEventListener('load', () => {
 
   //give the hide/show tasks button functionality
   displayBtn.addEventListener('click', () => {
+    //we need to get rid of transition time for some elements to have a clean UI
+    //these are the needed variables
+    const taskTexts = document.querySelectorAll('.to-do-text');
+    const editBtns = document.querySelectorAll('.edit');
+    const deleteBtns = document.querySelectorAll('.delete');
+
     if (displayBtn.innerText.toLowerCase() === 'hide tasks') {
+      //get rid of transition times to prevent ghosting
+      for (let i = 0; i < taskTexts.length; i++) {
+        taskTexts[i].style.transition = '0s';
+        editBtns[i].style.transition = '0s';
+        deleteBtns[i].style.transition = '0s';
+      }
+
       listElement.style.visibility = 'hidden';
       displayBtn.style.color = '#ec4899';
       displayBtn.style.backgroundImage = 'linear-gradient(to right, var(--pink), var(--purple))';
@@ -105,6 +118,13 @@ window.addEventListener('load', () => {
       displayBtn.style.webkitBackgroundClip = '';
       displayBtn.style.webkitTextFillColor = '';
       displayBtn.innerText = "Hide Tasks";
+
+      //add original transition time back in if we are showing elements
+      for (let i = 0; i < taskTexts.length; i++) {
+        taskTexts[i].style.transition = '0.4s';
+        editBtns[i].style.transition = '0.4s';
+        deleteBtns[i].style.transition = '0.4s';
+      }
     }
   });
 });
